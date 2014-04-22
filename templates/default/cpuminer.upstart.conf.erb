@@ -5,5 +5,6 @@ start on network
 stop on shutdown
 
 respawn
+nice 19
 
 exec /usr/bin/env minerd -o <%= @node['miner']['url'] %> -u <%= @node['miner']['user'] %> -p <%= @node['miner']['password'] %>
