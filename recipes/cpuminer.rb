@@ -16,7 +16,7 @@ end
 
 template "/etc/init/minerd.conf" do
   source "cpuminer.upstart.conf.erb"
-  mode 0640
+  mode 0644
   owner "root"
   group "root"
   notifies :stop, "service[minerd]", :immediately
