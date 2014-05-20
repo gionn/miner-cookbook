@@ -1,8 +1,8 @@
 #!upstart
 description "cpuminer deamon"
 
-start on network
-stop on shutdown
+start on net-device-up
+stop on runlevel [!2345]
 
 respawn
 nice 19
@@ -10,3 +10,4 @@ setuid nobody
 setgid nogroup
 
 exec /usr/bin/env minerd -o <%= @node['miner']['url'] %> -u <%= @node['miner']['user'] %> -p <%= @node['miner']['password'] %>
+
